@@ -6,6 +6,10 @@ require 'lib/dog'
 describe Dog do
     before :all do
         @dog = Dog.new("Pluto","Bulldog",5)
+        @children = Dog.new("MyChildren", "Bulldog", 5)
+        @child = Dog.new("MySecondChildren", "Bulldog", 4)
+        @dog.add(@children)
+        @dog.add(@child)
         @dad = Dog.new("SomeDog", "Bulldog",10)
     end
     context "#Start" do
@@ -31,6 +35,28 @@ describe Dog do
         end
         it "The dad's class must be dog too" do
             expect(@dog.dad.class).to eq(Dog)
+        end
+    end
+    
+    context "#LinkedList"do
+        it "Must have a linked list for store his son's information" do
+            expect(@dog.sons).not_to eq(nil)
+        end
+        it "Must have included the Enumerable Module" do
+            expect(Dog.include?Enumerable).to eq(true)
+        end
+        it "Must have a method to inserts sons" do
+            expect(@dog.respond_to?:add).to eq(true)
+        end
+    end
+    
+    context "#Comparable"do
+    
+        it "Must have included Comparable module"do
+            expect(Dog.include?(Comparable)).to eq(true)
+        end
+        it "Must be able to compare dogs"do
+            expect(@dad).to be >(@dog)
         end
     end
     
