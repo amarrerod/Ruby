@@ -1,0 +1,7 @@
+
+task :default => :spec
+
+desc"Expectativas"
+task :spec do
+    sh "rspec -I. spec/sp_dog.rb"
+end
