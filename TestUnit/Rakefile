@@ -1,0 +1,14 @@
+
+
+task :default => :tc_simple
+task :no => :tc_no
+
+desc"Test Simple"
+task :tc_simple do
+    sh "ruby -I. test/tc_dog.rb"
+end
+
+desc"Test Not Equal"
+task :tc_no do
+    sh"ruby -I. test/tc_dog.rb -n /no/"
+end
