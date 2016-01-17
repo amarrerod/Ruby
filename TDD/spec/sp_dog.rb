@@ -60,4 +60,17 @@ describe Dog do
         end
     end
     
+    context "#Singleton" do
+        before :all do
+             def @dog.woof
+                 'Woof'
+             end
+        end
+        it "Must have a Woof method" do
+            expect(@dog.respond_to?:woof).to eq(true)
+        end
+        it "Woof method must return Woof" do
+            expect(@dog.woof).to eq("Woof")
+        end
+    end
 end
