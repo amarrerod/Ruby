@@ -3,7 +3,8 @@
 
 
 class Personas
-    attr_accessor :id, :name, :dni, :job, :studies, :family, :hijos
+    include Comparable
+    attr_accessor :id, :name, :age, :dni, :job, :studies, :family, :hijos
     def initialize(id=0, &bloque)
         @id = id
         instance_eval(&bloque)
@@ -13,6 +14,10 @@ class Personas
         aux = "#{options[:nom]} #{options[:ap]}"  if options[:nom] && options[:ap]
         @name = aux
         @name
+    end
+    
+    def edad(arg)
+        @age = arg
     end
     
     def documentacion(arg)
@@ -32,6 +37,16 @@ class Personas
     end
     
     def descendencia(*args)
-        @hijos = args
+        @hijos = *args
+    end
+    
+    def <=> (other)
+        raise ArgumentError, 'No es de la clase Personas' if other.is_a?(Personas) == false
+        return @age <=> other.age
+    end
+    
+    def to_s
+        aux = "#{@name} #{@age} años #{@dni} #{@job} #{@hijos[0].size} Hijos"
     end
 end
+
