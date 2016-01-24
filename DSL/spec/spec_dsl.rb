@@ -75,5 +75,11 @@ describe Personas do
         it "Debe existir una raiz de la lista de personas" do
             expect(@listaP.root).not_to eq(nil)
         end
+        it "Debe existir el metodo to_s para la lista" do
+            expect(@listaP.respond_to?:to_s).to eq(true)
+        end
+        it "Debe incluir el modulo Enumerable para recorrer la lista"do
+            expect(ListaPersonas.include?Enumerable).to eq(true)
+        end
     end
 end
