@@ -10,7 +10,7 @@ class ListaPersonas
     def initialize(raiz)
         raise ArgumentError, 'Argumento Erroneo' if raiz.is_a?(Personas) == false
         @root = Node.new(raiz,nil)
-        puts self
+        ##puts self
     end
     def to_s
         aux = @root
