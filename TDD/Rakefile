@@ -3,5 +3,5 @@ task :default => :spec
 
 desc"Expectativas"
 task :spec do
-    sh "rspec -I. spec/sp_dog.rb"
+    sh "rspec -I. spec/sp_dog.rb --format documentation"
 end

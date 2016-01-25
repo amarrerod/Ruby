@@ -12,6 +12,8 @@ class MyClass
     attr_accessor :myInstanceVariable
     
     CONSTANTE = "ESTO ES UNA CONSTANTE"
+    puts("Antes del initialize")
+    puts(CONSTANTE)
     def initialize()
         @myInstanceVariable = "Variable de Instancia"
         @@myClassVariable += 1
