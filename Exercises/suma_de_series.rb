@@ -46,3 +46,24 @@ bloque = ->(cadena,rango) do
 end
 
 puts(bloque.call(getCadena,getLongitudSeries))
+
+
+
+##################################################3
+
+bloque = ->(string, rango = 1) do
+        raise RuntimeError, 'Out of range' if rango > string.length
+        max = 0
+        for i in 0..(string.length-rango) do
+            suma = 1
+            for j in i...(i+rango) do
+                suma *= string[j].to_i
+            end
+            if (suma > max)
+                    max = suma
+            end
+        end
+        max
+end
+
+puts(bloque.call('73167176531330624919225119674426574742355349194934',6))

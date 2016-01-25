@@ -36,3 +36,21 @@ valor = getValor
 resultado = closure.call(valor)
 puts("El valor del la suma es: #{resultado[1]}")
 puts("Los numeros utilizados son: #{resultado[00]}")
+
+
+
+#######################################
+
+bloque = ->(num, x=3, y=5) do
+        
+        suma = 0
+        for i in 0...num do
+            if (((i%x)==0)||
+                ((i%y)==0))
+                    suma +=i
+            end
+        end
+        suma
+end
+
+puts(bloque.call(20))

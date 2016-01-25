@@ -45,3 +45,18 @@ end
 
 resultado = closure.call(getCadena,getRango)
 p(resultado)
+
+
+###################################################################
+####################  VERSION 2.0  ################################
+
+bloque = ->(cadena, rango = 1) do
+            raise RuntimeError, "Out of range" if rango >= cadena.length
+            array = Array.new
+            for i in 0..(cadena.length - rango) do
+                array << cadena[i,rango]
+            end
+            array
+end
+
+puts(bloque.call("01234",3))

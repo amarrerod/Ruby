@@ -22,7 +22,7 @@ clausura = ->(string)do
             array = string.split(" ")
             cadena = String.new
             array.each do |value|
-                cadena << "#{value[0].capitalize}"
+                cadena << "#{value[0].upcase}"
             end
             cadena
 end
