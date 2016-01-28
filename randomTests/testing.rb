@@ -40,3 +40,4 @@ Miclase.metodoDeClase2
 Miclase.metodoDeClase3
 Miclase.metodoDeClase4
 {puts('A')}
+

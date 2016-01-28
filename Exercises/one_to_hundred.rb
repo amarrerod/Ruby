@@ -11,3 +11,14 @@ sum = r.each.inject(0) do |acc,value|
 end
 
 puts(sum)
+
+l = (1..100).select do |value|
+	value if ((value % 3 == 0) &&
+			   (value % 5 == 0))
+end.inject(0) do |acc, v|
+	acc + v
+end
+puts(l)
+
+l = (1..100).select {|value| value if ((value % 3 == 0) && (value % 5 == 0))}.inject(0) {|acc,v| acc + v}
+puts(l)
